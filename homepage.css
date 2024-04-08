@@ -268,7 +268,7 @@ section {
 
 .explore-content p {
     font-size: 4vmin;
-    color: rgb;
+    
 }
 
 .explore-content ul {
@@ -405,11 +405,6 @@ hr {
     padding: 0 30px;
 }
 
-.footer-logo {
-    letter-spacing: 2px;
-    font-size: 'Potta one', cursive;
-    text-shadow: 0 20px 6px red;
-}
 
 .links {
     margin: 10px 0;
