@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--css link-->
+    <link rel="stylesheet" href="wilpattu.css">
+    <!--goggle fonts links-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Alfa+Slab+One&family=Beau+Rivage&family=Elsie:wght@900&family=Great+Vibes&family=Lilita+One&family=Merriweather:ital,wght@0,300;1,300&family=Rubik+Maps&family=Rubik+Mono+One&family=Rubik+Scribble&family=Rubik+Vinyl&display=swap"
+        rel="stylesheet">
+    <!--remixicons links-->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+
+    <title>SrilankaWildWonder/AnimalsInSrilanka/WilpattuNationalPark</title>
+    <!--footer icons link-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- menifest link -->
+    <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
+    <link rel="manifest" href="./site.webmanifest">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <!-- Include alpine.js -->
+    <script src="//unpkg.com/alpinejs" defer></script>
+    <style>
+        .edit-btn {
+            background-color: rgba(0, 0, 0, 0.596);
+            color: white;
+            padding: 20px 30px;
+            border: none;
+            cursor: pointer;
+            margin: 20px;
+        }
+
+        #popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fefefe;
+            border: 1px solid #888;
+            width: 500px;
+            padding: 30px;
+            z-index: 1000;
+        }
+        @media screen and (max-width: 990px)  {
+            #popup{
+                width: 300px;
+                padding: 20px;
+                top: 40%;
+            }
+        }
+
+        @font-face {
+            font-family: rosela;
+            src: url(font/Rosela.ttf);
+        }
+
+        .inputs {
+            border: 1px solid;
+            padding: 10px;
+            text-align: center;
+            overflow-y: scroll;
+            height: 300px;
+        }
+
+        .buttons button {
+            padding: 10px;
+            margin: 10px;
+            text-align: center;
+            border-radius: 10px;
+            border: 1px solid black;
+        }
+
+        .buttons button:hover {
+            background-color: rgb(216, 4, 4);
+            color: white;
+        }
+
+        .buttons .save:hover {
+            background-color: green;
+        }
+
+        textarea {
+            width: 400px;
+            padding: 10px;
+            border: 1px solid;
+        }
+
+        input {
+            width: 400px;
+            padding: 10px;
+            border: 1px solid;
+        }
+    </style>
+
+</head>
+
+<section class="bgimage">
+
+    <body>
+
+        <!-- Navbar -->
+        <nav class="navbar">
+            <input type="checkbox" id="check">
+            <label for="check" class="checkbtn">
+                <i class="fas fa-bars"></i>
+            </label>
+            <a href="index.html"><img src="./images/lg.png" alt="logo" class="logo"></a>
+            <ul class="nav-links">
+                <li class="home"><a href="./leopard.html">Leopard</a></li>
+                <li class="home"><a href="./department.html">Explore</a></li>
+                <li class="home"><a href="./introduction.html">Introduction</a></li>
+                <li class="home"><a href="./Animalssl.html">Animals</a></li>
+                <li class="login"><a href="./login.html">Login</a></li>
+            </ul>
+            <div class="icons">
+                <a href="./index.html" class="fas fa-home"></a>
+                <a href="./login.html" class="fas fa-user"></a>
+            </div>
+        </nav>
+        <!-- Intro -->
+        <main>
+            <div class="editCC">
+                <section class="start" x-data="headerData">
+                    <article class="head">
+                        <h1 x-text="title" id="title"></h1>
+                        <p x-text="titlePara" id="titlePara"></p>
+                    </article>
+                </section>
+                <!-- Wilpattu national park animals -->
+                <!-- Container -->
+                <section class="info" x-data="cardData">
+                    <div class="container">
+                        <div class="card">
+                            <div class="imgbx"><img src="images/wilpattu1 Water Buffalo.jpg" alt="Water Buffalo "></div>
+                            <div class="content">
+                                <h1 x-text="cardOne" id="cardOne"></h1>
+                                <p x-text="cardOnePara" id="cardOnePara"></p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="imgbx"><img src="images/wilpattu2 Bird Species.jpg" alt="Bird Species"></div>
+                            <div class="content">
+                                <h1 x-text="cardTwo" id="cardTwo"></h1>
+                                <p x-text="cardTwoPara" id="cardTwoPara"></p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="imgbx"><img src="images/wilpattu3 Asian Elephant.jpg" alt="Asian Elephant "></div>
+                            <div class="content">
+                                <h1 x-text="cardThree" id="cardThree"></h1>
+                                <p x-text="cardThreePara" id="cardThreePara"></p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <button class="edit-btn" onclick="openPopup()">Edit Content</button>
+            </div>
+            <!--Google Map -->
+            <section class="map">
+
+
+
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d505153.20161425177!2d79.70707029381855!3d8.449741941780022!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3afdac7787e4bc27%3A0xcdd9a0715dad187c!2sWilpattu%20National%20Park!5e0!3m2!1sen!2slk!4v1705369652735!5m2!1sen!2slk"
+                    style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+                
+            </section>
+            
+            <!-- Edit Content -->
+            <div id="popup">
+                
+                <h2>Edit Content</h2><br>
+                <div class="inputs">
+
+                    <input type="text" id="newTitle" placeholder="Enter new title" x-model="newTitle"><br><br>
+                    <textarea  id="newSubtitle" placeholder="Enter new subtitle" x-model="newSubtitle"></textarea><br><br>
+                    <textarea id="newcardOne" placeholder="Enter Card One Title"
+                        x-model="newParagraph"></textarea><br><br>
+                    <textarea id="newcardOnePara" placeholder="Enter Card One paragraph"
+                        x-model="newParagraph"></textarea><br><br>
+                    <textarea id="newcardTwo" placeholder="Enter Card Two Title"
+                        x-model="newParagraph"></textarea><br><br>
+                    <textarea id="newcardTwoPara" placeholder="Enter Card Two paragraph"
+                        x-model="newParagraph"></textarea><br><br>
+                    <textarea id="newcardThree" placeholder="Enter Card Three Title"
+                        x-model="newParagraph"></textarea><br><br>
+                    <textarea id="newcardThreePara" placeholder="Enter Card Three paragraph"
+                        x-model="newParagraph"></textarea><br><br>
+
+                </div>
+
+                <div class="buttons">
+                    <button onclick="saveContent()" class="save">Save</button>
+                    <button onclick="closePopup()">Cancel</button>
+                </div>
+            </div>
+                <!--footer-->
+                <footer>
+                    <div class="newslatter">
+                        <h2>
+                            <span>Subscribe Newslatter</span>
+                            <span>Subscribe Newslatter to get more updates</span>
+                        </h2>
+                        <section id="newsletter" class="col-2">
+                            <form id="subscribeForm">
+                                <input type="email" id="emailInput" placeholder="Enter your email">
+
+                                <button type="submit">Subscribe</button>
+                            </form>
+                        </section>
+                        <ul class="social-icons">
+                            <li>
+                                <a href="#"><i class="fab fa-facebook"></i></a>
+                            </li>
+
+                            <li>
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                            </li>
+
+                            <li>
+                                <a href="#"><i class="fab fa-youtube"></i></a>
+                            </li>
+                        </ul>
+
+                    </div>
+
+
+                    <div class="main">
+                        <h2 class="footer logo"><img src="./images/lg.png" alt="logo" class="logo"></h2>
+                        <div class="list">
+
+
+
+                            <h2>Quick Links</h2>
+
+                            <ul>
+                                <li class="#"><a href="./leopard.html">Leopard</a></li>
+                                <li class="#"><a href="./department.html">Explore</a></li>
+                                <li class="#"><a href="./introduction.html">Introduction</a></li>
+                                <li class="#"><a href="./Animalssl.html">Animals</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="copyright">
+                        <p>Copyright 2023 All rights reserved | SriLankaWildWonder</p>
+                    </div>
+
+                </footer>
+
+
+                <script>
+                    const headerData = {};
+                    const cardData = {};
+
+                    fetch('wilpattu.json')
+                        .then(response => response.json())
+                        .then(data => {
+                            headerData.title = data[0].title;
+                            headerData.titlePara = data[0].titlePara;
+                            cardData.cardOne = data[1].cardOne;
+                            cardData.cardOnePara = data[1].cardOnePara;
+                            cardData.cardTwo = data[1].cardTwo;
+                            cardData.cardTwoPara = data[1].cardTwoPara;
+                            cardData.cardThree = data[1].cardThree;
+                            cardData.cardThreePara = data[1].cardThreePara;
+
+                        })
+                        .catch(
+                            error => console.error('Error fetching data:', error)
+                        )
+
+                    //Edit popup
+                    function openPopup() {
+                        document.getElementById("popup").style.display = "block";
+                        document.getElementById("newTitle").value = document.getElementById("title").innerText;
+                        document.getElementById("newSubtitle").value = document.getElementById("titlePara").innerText;
+                        document.getElementById("newcardOne").value = document.getElementById("cardOne").innerText;
+                        document.getElementById("newcardOnePara").value = document.getElementById("cardOnePara").innerText;
+                        document.getElementById("newcardTwo").value = document.getElementById("cardTwo").innerText;
+                        document.getElementById("newcardTwoPara").value = document.getElementById("cardTwoPara").innerText;
+                        document.getElementById("newcardThree").value = document.getElementById("cardThree").innerText;
+                        document.getElementById("newcardThreePara").value = document.getElementById("cardThreePara").innerText;
+
+                    }
+
+                    function closePopup() {
+                        document.getElementById("popup").style.display = "none";
+                    }
+
+                    function saveContent() {
+                        document.getElementById("title").innerText = document.getElementById("newTitle").value;
+                        document.getElementById("titlePara").innerText = document.getElementById("newSubtitle").value;
+                        document.getElementById("cardOne").innerText = document.getElementById("newcardOne").value;
+                        document.getElementById("cardOnePara").innerText = document.getElementById("newcardOnePara").value;
+                        document.getElementById("cardTwo").innerText = document.getElementById("newcardTwo").value;
+                        document.getElementById("cardTwoPara").innerText = document.getElementById("newcardTwoPara").value;
+                        document.getElementById("cardThree").innerText = document.getElementById("newcardThree").value;
+                        document.getElementById("cardThreePara").innerText = document.getElementById("newcardThreePara").value;
+
+                        closePopup();
+                    }
+
+                    function clearChanges() {
+                        document.getElementById("newTitle").value = document.getElementById("title").innerText;
+                        document.getElementById("newSubtitle").value = document.getElementById("titlePara").innerText;
+                        document.getElementById("newcardOne").value = document.getElementById("cardOne").innerText;
+                        document.getElementById("newcardOnePara").value = document.getElementById("cardOnePara").innerText;
+                        document.getElementById("newcardTwo").value = document.getElementById("cardTwo").innerText;
+                        document.getElementById("newcardTwoPara").value = document.getElementById("cardTwoPara").innerText;
+                        document.getElementById("newcardThree").value = document.getElementById("cardThree").innerText;
+                        document.getElementById("newcardThreePara").value = document.getElementById("cardThreePara").innerText;
+
+                        closePopup();
+                    }
+
+                    // Ensure the popup is closed initially
+                    closePopup();
+
+
+                    //NewsLatter Function
+
+                    document.addEventListener("DOMContentLoaded", function () {
+                        // Gets the email and subscription inputs element
+                        const emailInput = document.getElementById('emailInput');
+                        const subscribeForm = document.getElementById('subscribeForm');
+
+                        subscribeForm.addEventListener('submit', function (event) {
+                            event.preventDefault();
+                            // Gets the trimmed value of the email input
+                            const email = emailInput.value.trim();
+                            // Checks if email is not empty
+                            if (email) {
+                                let subscriptions = JSON.parse(localStorage.getItem('newsletterSubscriptions')) || [];
+
+                                subscriptions.push(email);
+
+                                localStorage.setItem('newsletterSubscriptions', JSON.stringify(subscriptions));
+
+                                emailInput.value = '';
+
+                                alert('You have successfully subscribed!');
+                            }
+                        });
+
+                        // Initialize subscriptions from localStorage
+
+                        (function init() {
+
+                            const storedSubscriptions = localStorage.getItem('newsletterSubscriptions');
+
+                            if (storedSubscriptions) {
+
+                                const subscriptions = JSON.parse(storedSubscriptions);
+
+                                console.log(subscriptions);
+                            }
+                        })();
+                    });
+
+                </script>
+
+    </body>
+</section>
+<!--content
+    https://www.wikipedia.org/-->
+<!--Images
+     www.pexels.com-->
+<!--Maps
+      www.google.com/maps-->
+
+</html>
